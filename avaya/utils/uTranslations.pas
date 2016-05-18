@@ -9,29 +9,29 @@ interface
 uses
   SysUtils, uACSdefs_h, uACS_h, uCSTAdefs_h, uCSTA_h, uATTPDefs_h, uATTPriv_h;
 
-function EventTypeToStr(EventClass: EventClass_t; EventType: EventType_t): String;
-function EventClassToStr(EventClass: EventClass_t): String;
-function CSTAUniversalFailureToStr(CSTAUniversalFailure: CSTAUniversalFailure_t): String;
-function ACSUniversalFailureToStr(ACSUniversalFailure: ACSUniversalFailure_t): String;
-function CtReturnToStr(ErrorCode: TSAPI): String;
-function DeviceTypeToStr(DeviceType: DeviceType_t): String;
-function CallStateToStr(CSTASimpleCallState: CSTASimpleCallState_t): String;
-function LocalConnectionStateToStr(LocalConnectionState: LocalConnectionState_t): String;
-function ATTEventTypeToStr(ATTEventType : ATTEventType_t): String;
-function CSTAEventCauseToStr( CSTAEventCause : CSTAEventCause_t ) : String;
-function ATTDeliveredTypeToStr( ATTDeliveredType : ATTDeliveredType_t ) : String;
-function ATTReasonCodeToStr( ATTReasonCode : ATTReasonCode_t ) : String;
-function ATTProgressLocationToStr( ATTProgressLocation : ATTProgressLocation_t ) : String;
-function ATTProgressDescriptionToStr( ATTProgressDescription : ATTProgressDescription_t ) : String;
-function AgentStateToStr( agentState : AgentState_t ) : String;
-function AgentModeToStr( agentMode : AgentMode_t ) : String;
-function ATTWorkModeToStr( workMode : ATTWorkMode_t ) : String;
-function ATTTalkStateToStr( talkState : ATTTalkState_t ) : String;
-function ATTUserToUserInfoToString( userInfo : ATTUserToUserInfo_t ) : String;
+function EventTypeToStr(EventClass: EventClass_t; EventType: EventType_t): AnsiString;
+function EventClassToStr(EventClass: EventClass_t): AnsiString;
+function CSTAUniversalFailureToStr(CSTAUniversalFailure: CSTAUniversalFailure_t): AnsiString;
+function ACSUniversalFailureToStr(ACSUniversalFailure: ACSUniversalFailure_t): AnsiString;
+function CtReturnToStr(ErrorCode: TSAPI): AnsiString;
+function DeviceTypeToStr(DeviceType: DeviceType_t): AnsiString;
+function CallStateToStr(CSTASimpleCallState: CSTASimpleCallState_t): AnsiString;
+function LocalConnectionStateToStr(LocalConnectionState: LocalConnectionState_t): AnsiString;
+function ATTEventTypeToStr(ATTEventType : ATTEventType_t): AnsiString;
+function CSTAEventCauseToStr( CSTAEventCause : CSTAEventCause_t ) : AnsiString;
+function ATTDeliveredTypeToStr( ATTDeliveredType : ATTDeliveredType_t ) : AnsiString;
+function ATTReasonCodeToStr( ATTReasonCode : ATTReasonCode_t ) : AnsiString;
+function ATTProgressLocationToStr( ATTProgressLocation : ATTProgressLocation_t ) : AnsiString;
+function ATTProgressDescriptionToStr( ATTProgressDescription : ATTProgressDescription_t ) : AnsiString;
+function AgentStateToStr( agentState : AgentState_t ) : AnsiString;
+function AgentModeToStr( agentMode : AgentMode_t ) : AnsiString;
+function ATTWorkModeToStr( workMode : ATTWorkMode_t ) : AnsiString;
+function ATTTalkStateToStr( talkState : ATTTalkState_t ) : AnsiString;
+function ATTUserToUserInfoToAnsiString( userInfo : ATTUserToUserInfo_t ) : AnsiString;
 
 implementation
 
-function EventTypeToStr(EventClass: EventClass_t; EventType: EventType_t): String;
+function EventTypeToStr(EventClass: EventClass_t; EventType: EventType_t): AnsiString;
 begin
 case EventClass of
   CSTAREQUEST, CSTAUNSOLICITED, CSTACONFIRMATION, CSTAEVENTREPORT_:
@@ -198,7 +198,7 @@ case EventClass of
   end;
 end;
 
-function EventClassToStr(EventClass: EventClass_t): String;
+function EventClassToStr(EventClass: EventClass_t): AnsiString;
 begin
 case EventClass of
   CSTAREQUEST      : Result := 'CSTAREQUEST';
@@ -212,7 +212,7 @@ case EventClass of
   end;
 end;
 
-function CSTAUniversalFailureToStr(CSTAUniversalFailure: CSTAUniversalFailure_t): String;
+function CSTAUniversalFailureToStr(CSTAUniversalFailure: CSTAUniversalFailure_t): AnsiString;
 begin
 case CSTAUniversalFailure of
    GENERIC_UNSPECIFIED                       : Result := 'GENERIC_UNSPECIFIED';
@@ -289,7 +289,7 @@ case CSTAUniversalFailure of
    end;
 end;
 
-function ACSUniversalFailureToStr(ACSUniversalFailure: ACSUniversalFailure_t): String;
+function ACSUniversalFailureToStr(ACSUniversalFailure: ACSUniversalFailure_t): AnsiString;
 begin
 case ACSUniversalFailure of
   TSERVER_STREAM_FAILED                          : Result := 'TSERVER_STREAM_FAILED';
@@ -423,7 +423,7 @@ case ACSUniversalFailure of
   end;
 end;
 
-function CtReturnToStr(ErrorCode: TSAPI): String;
+function CtReturnToStr(ErrorCode: TSAPI): AnsiString;
 begin
 case ErrorCode of
   ACSERR_APIVERDENIED : Result := 'ACSERR_APIVERDENIED';
@@ -443,7 +443,7 @@ case ErrorCode of
   end;
 end;
 
-function DeviceTypeToStr(DeviceType: DeviceType_t): String;
+function DeviceTypeToStr(DeviceType: DeviceType_t): AnsiString;
 begin
 case DeviceType of
   DT_STATION        : Result := 'DT_STATION';
@@ -463,7 +463,7 @@ case DeviceType of
   end;
 end;
 
-function CallStateToStr(CSTASimpleCallState: CSTASimpleCallState_t): String;
+function CallStateToStr(CSTASimpleCallState: CSTASimpleCallState_t): AnsiString;
 begin
 case CSTASimpleCallState of
   CALL_NULL                : Result := 'CALL_NULL';
@@ -484,7 +484,7 @@ case CSTASimpleCallState of
   end;
 end;
 
-function LocalConnectionStateToStr(LocalConnectionState: LocalConnectionState_t): String;
+function LocalConnectionStateToStr(LocalConnectionState: LocalConnectionState_t): AnsiString;
 begin
 case LocalConnectionState of
   CS_NONE     : Result := 'CS_NONE';
@@ -499,7 +499,7 @@ case LocalConnectionState of
   end;
 end;
 
-function ATTEventTypeToStr(ATTEventType : ATTEventType_t): String;
+function ATTEventTypeToStr(ATTEventType : ATTEventType_t): AnsiString;
 begin
 case ATTEventType of
   ATTV5_CLEAR_CONNECTION : Result :='ATTV5_CLEAR_CONNECTION';
@@ -597,11 +597,11 @@ case ATTEventType of
   ATT_MONITOR_CONF : Result :='ATT_MONITOR_CONF';
   ATT_MONITOR_CALL_CONF : Result :='ATT_MONITOR_CALL_CONF';
   ATT_SERVICE_INITIATED : Result :='ATT_SERVICE_INITIATED';
-  ATT_CHARGE_ADVICE : Result :='ATT_CHARGE_ADVICE';
+  ATT_Charge_ADVICE : Result :='ATT_Charge_ADVICE';
   ATT_GETAPI_CAPS_CONF : Result :='ATT_GETAPI_CAPS_CONF';
   ATT_QUERY_DEVICE_INFO_CONF : Result :='ATT_QUERY_DEVICE_INFO_CONF';
-  ATT_SET_ADVICE_OF_CHARGE : Result :='ATT_SET_ADVICE_OF_CHARGE';
-  ATT_SET_ADVICE_OF_CHARGE_CONF : Result :='ATT_SET_ADVICE_OF_CHARGE_CONF';
+  ATT_SET_ADVICE_OF_Charge : Result :='ATT_SET_ADVICE_OF_Charge';
+  ATT_SET_ADVICE_OF_Charge_CONF : Result :='ATT_SET_ADVICE_OF_Charge_CONF';
   ATT_NETWORK_REACHED : Result :='ATT_NETWORK_REACHED';
   ATT_SET_AGENT_STATE : Result :='ATT_SET_AGENT_STATE';
   ATT_SET_AGENT_STATE_CONF : Result :='ATT_SET_AGENT_STATE_CONF';
@@ -624,7 +624,7 @@ case ATTEventType of
   end;
 end;
 
-function CSTAEventCauseToStr( CSTAEventCause : CSTAEventCause_t ) : String;
+function CSTAEventCauseToStr( CSTAEventCause : CSTAEventCause_t ) : AnsiString;
 begin
 case CSTAEventCause of
   EC_NONE                        : Result := 'EC_NONE';
@@ -671,7 +671,7 @@ case CSTAEventCause of
   end
 end;
 
-function ATTDeliveredTypeToStr( ATTDeliveredType : ATTDeliveredType_t ) : String;
+function ATTDeliveredTypeToStr( ATTDeliveredType : ATTDeliveredType_t ) : AnsiString;
 begin
 case ATTDeliveredType of
 
@@ -682,7 +682,7 @@ case ATTDeliveredType of
   end;
 end;
 
-function ATTReasonCodeToStr( ATTReasonCode : ATTReasonCode_t ) : String;
+function ATTReasonCodeToStr( ATTReasonCode : ATTReasonCode_t ) : AnsiString;
 begin
 case ATTReasonCode of
 
@@ -703,7 +703,7 @@ AR_SERVICE_OBSERVER        : Result := 'AR_SERVICE_OBSERVER';
   end;
 end;
 
-function ATTProgressLocationToStr( ATTProgressLocation : ATTProgressLocation_t ) : String;
+function ATTProgressLocationToStr( ATTProgressLocation : ATTProgressLocation_t ) : AnsiString;
 begin
 case ATTProgressLocation of
   PL_NONE        : Result := 'PL_NONE';
@@ -714,7 +714,7 @@ case ATTProgressLocation of
   end;
 end;
 
-function ATTProgressDescriptionToStr( ATTProgressDescription : ATTProgressDescription_t ) : String;
+function ATTProgressDescriptionToStr( ATTProgressDescription : ATTProgressDescription_t ) : AnsiString;
 begin
 case ATTProgressDescription of
   PD_NONE          : Result := 'PD_NONE';
@@ -726,7 +726,7 @@ case ATTProgressDescription of
   end;
 end;
 
-function AgentStateToStr( agentState : AgentState_t ) : String;
+function AgentStateToStr( agentState : AgentState_t ) : AnsiString;
 begin
 case agentState of
   AG_NOT_READY      : Result := 'AG_NOT_READY';
@@ -737,7 +737,7 @@ case agentState of
   end;
 end;
 
-function AgentModeToStr( agentMode : AgentMode_t ) : String;
+function AgentModeToStr( agentMode : AgentMode_t ) : AnsiString;
 begin
 case agentMode of
   AM_LOG_IN         : Result := 'AM_LOG_IN';
@@ -749,7 +749,7 @@ case agentMode of
   end;
 end;
 
-function ATTWorkModeToStr( workMode : ATTWorkMode_t ) : String;
+function ATTWorkModeToStr( workMode : ATTWorkMode_t ) : AnsiString;
 begin
 case workMode of
   WM_NONE      : Result := 'WM_NONE';
@@ -760,7 +760,7 @@ case workMode of
   end
 end;
 
-function ATTTalkStateToStr( talkState : ATTTalkState_t ) : String;
+function ATTTalkStateToStr( talkState : ATTTalkState_t ) : AnsiString;
 begin
 case talkState of
   TS_ON_CALL : Result := 'TS_ON_CALL';
@@ -768,13 +768,13 @@ case talkState of
   end
 end;
 
-function ATTUserToUserInfoToString( userInfo : ATTUserToUserInfo_t ) : String;
+function ATTUserToUserInfoToAnsiString( userInfo : ATTUserToUserInfo_t ) : AnsiString;
 var I : Integer;
 begin
 Result := EmptyStr;
 for I := 0 to userInfo.data.length - 1 do
   begin
-  Result := Result + Char( userinfo.data.value[ I ] );
+  Result := Result + AnsiChar( userinfo.data.value[ I ] );
   end;
 end;
 

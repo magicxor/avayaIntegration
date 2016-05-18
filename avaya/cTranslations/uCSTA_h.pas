@@ -136,7 +136,7 @@ type
   CSTAEvent_t = record
     eventHeader : ACSEventHeader_t;
     _event      : event;
-    heap : array [0..CSTA_MAX_HEAP - 1] of Char;
+    heap : array [0..CSTA_MAX_HEAP - 1] of AnsiChar;
     end;
 
 function cstaMakeCall( acsHandle : ACSHandle_t ; invokeID : InvokeID_t;

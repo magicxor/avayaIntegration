@@ -22,7 +22,7 @@ type
    InvokeIDType_t = (APP_GEN_ID,		//* application will provide invokeIDs; any 4-byte value is legal */
                   	 LIB_GEN_ID);		//* library will generate invokeIDs in the range 1-32767 */
 
-   Passwd_t  = array [0..48] of Char;
+   Passwd_t  = array [0..48] of AnsiChar;
    pPasswd_t = ^Passwd_t;
 
    Level_t  = (ACS_LEVEL1 = 1,
@@ -34,9 +34,9 @@ const
 
 type
    PrivateData_t = record
-      vendor : array [0..PRIVATE_VENDOR_SIZE - 1] of Char;
+      vendor : array [0..PRIVATE_VENDOR_SIZE - 1] of AnsiChar;
       length : WORD;
-      data   : array [0..1023] of Char;	//* actual length determined by application */
+      data   : array [0..1023] of AnsiChar;	//* actual length determined by application */
       end;
 
 pPrivateData_t = ^PrivateData_t;

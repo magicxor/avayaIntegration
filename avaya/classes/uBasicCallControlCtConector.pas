@@ -119,7 +119,7 @@ type
 
 implementation
 
-uses SysUtils, Math, Classes, uTranslations;
+uses SysUtils, Math, Classes, uTranslations, AnsiStrings;
 
 { TSwitchingCtConector }
 
@@ -437,7 +437,7 @@ begin
 FillChar( MyUserToUserInfo, SizeOf( MyUserToUserInfo ), 0 );
 MyUserToUserInfo._type := UUI_IA5_ASCII;
 MyUserToUserInfo.data.length := Min( Length( UserToUserInfo ), ATT_MAX_UUI_SIZE );
-StrPLCopy( @MyUserToUserInfo.data.value, UserToUserInfo , Min( Length( UserToUserInfo ), ATT_MAX_UUI_SIZE ) );
+AnsiStrings.StrPLCopy( @MyUserToUserInfo.data.value, UserToUserInfo , Min( Length( UserToUserInfo ), ATT_MAX_UUI_SIZE ) );
 end;
 
 // DISPARADOR DO EVENTO CSTAALTERNATECALLCONF

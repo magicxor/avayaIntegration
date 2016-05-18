@@ -30,13 +30,13 @@ type
     ST_DIRECTORY = 3,
     ST_NMSRV     = 4);
 
-  ServerID_t  = array [0..48] of Char;
+  ServerID_t  = array [0..48] of AnsiChar;
   pServerID_t = ^ServerID_t;
 
-  LoginID_t  = array [0..48] of Char;
+  LoginID_t  = array [0..48] of AnsiChar;
   pLoginID_t = ^LoginID_t;
 
-  AppName_t  = array [0..20] of Char;
+  AppName_t  = array [0..20] of AnsiChar;
   pAppName_t = ^AppName_t;
 
   CryptPasswd_t = record
@@ -45,7 +45,7 @@ type
     end;
 
   pVersion_t = ^Version_t;
-  Version_t = array [0..20] of Char;
+  Version_t = array [0..20] of AnsiChar;
 
   ACSOpenStreamConfEvent_t = record
     apiVer  : Version_t;

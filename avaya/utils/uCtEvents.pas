@@ -305,11 +305,11 @@ type
     monitorCrossRefId      : CSTAMonitorCrossRefID_t;
     connection             : ConnectionID_t;
     calledDevice           : DeviceID_t;
-    chargingDevice         : DeviceID_t;
+    ChargingDevice         : DeviceID_t;
     trunkGroup             : DeviceID_t;
     trunkMember            : DeviceID_t;
-    chargeType             : ATTChargeType_t;
-    charge                 : LongInt;
+    ChargeType             : ATTChargeType_t;
+    Charge                 : LongInt;
     error                  : ATTChargeError_t ) of object;
 
 { Events presents in TBasicCallControlCtConector }

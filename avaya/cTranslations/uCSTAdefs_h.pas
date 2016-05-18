@@ -147,7 +147,7 @@ const
   CSTA_ROUTE_END_INV_REQUEST       = 133;
 
 type
-  DeviceID_t = array [0..63] of Char;
+  DeviceID_t = array [0..63] of AnsiChar;
   pDeviceID_t = ^DeviceID_t;
 
   ConnectionID_Device_t = ( STATIC_ID = 0,
@@ -502,10 +502,10 @@ type
     end;
 
 
-  AccountInfo_t = array [0..31] of Char;
+  AccountInfo_t = array [0..31] of AnsiChar;
 
 
-  AuthCode_t = array [0..31] of Char;
+  AuthCode_t = array [0..31] of AnsiChar;
 
 
   CSTACallInformationEvent_t = record
@@ -527,9 +527,9 @@ type
     end;
 
 
-  AgentID_t       = array [0..31] of Char;
+  AgentID_t       = array [0..31] of AnsiChar;
   pAgentID_t      = ^AgentID_t;
-  AgentPassword_t = array [0..31] of Char;
+  AgentPassword_t = array [0..31] of AnsiChar;
   pAgentPassword_t = ^AgentPassword_t;
   AgentGroup_t    = DeviceID_t;
   pAgentGroup_t   = ^AgentGroup_t;

@@ -211,9 +211,9 @@ if not CheckParams( ( device <> EmptyStr ) and ( agentGroup <> EmptyStr ),
   exit;
 
 PrepareDeviceID_t( _device, device );
-ShortStringToArrayOfChar( _agentID, agentID );
+ShortStringToArrayOfAnsiChar( _agentID, agentID );
 PrepareDeviceID_t( _agentGroup, agentGroup );
-ShortStringToArrayOfChar( _agentPassword, agentPassword );
+ShortStringToArrayOfAnsiChar( _agentPassword, agentPassword );
 PrepareATTPrivateData_t( PrivateData );
 
 Result := attV6SetAgentState( @PrivateData, workMode, reasonCode, enablePending );

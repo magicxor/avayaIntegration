@@ -108,11 +108,11 @@ const
   ATT_MONITOR_CONF                        =  93;
   ATT_MONITOR_CALL_CONF                   =  94;
   ATT_SERVICE_INITIATED                   =  95;
-  ATT_CHARGE_ADVICE                       =  96;
+  ATT_Charge_ADVICE                       =  96;
   ATT_GETAPI_CAPS_CONF                    =  97;
   ATT_QUERY_DEVICE_INFO_CONF              =  98;
-  ATT_SET_ADVICE_OF_CHARGE                =  99;
-  ATT_SET_ADVICE_OF_CHARGE_CONF           = 100;
+  ATT_SET_ADVICE_OF_Charge                =  99;
+  ATT_SET_ADVICE_OF_Charge_CONF           = 100;
   ATT_NETWORK_REACHED                     = 101;
   ATT_SET_AGENT_STATE                     = 102;
   ATT_SET_AGENT_STATE_CONF                = 103;
@@ -137,7 +137,7 @@ const
 
 type
 
-  ATTUCID_t = array[0..63] of char;
+  ATTUCID_t = array[0..63] of AnsiChar;
 
   ATTMakeCallConfEvent_t = record
     ucid : ATTUCID_t;
@@ -218,7 +218,7 @@ type
   ATTUserEnteredCode_t = record
     _type      : ATTUserEnteredCodeType_t;
     indicator  : ATTUserEnteredCodeIndicator_t;
-    data       : array [0..24] of char;
+    data       : array [0..24] of AnsiChar;
     collectVDN : DeviceID_t;
     end;
 
@@ -384,7 +384,7 @@ type
     end;
 
 
-  ATTMwiApplication_t = UCHAR;
+  ATTMwiApplication_t = UChar;
 
 
   ATTQueryMwiConfEvent_t = record
@@ -468,8 +468,8 @@ type
 
   ATTAgentMeasurements_t = record
     acdCalls                : Integer;
-    extension               : array [0..5] of char;
-    name                    : array [0..15] of char;
+    extension               : array [0..5] of AnsiChar;
+    name                    : array [0..15] of AnsiChar;
     state                   : Byte;
     avgACDTalkTime          : Integer;
     avgExtensionTime        : Integer;
@@ -499,10 +499,10 @@ type
     splitCallsFlowedIn      : Integer;
     splitCallsFlowedOut     : Integer;
     splitCallsWaiting       : SmallInt;
-    splitName               : array [0..15] of char;
+    splitName               : array [0..15] of AnsiChar;
     splitNumber             : SmallInt;
-    splitExtension          : array [0..5] of char;
-    splitObjective          : array [0..5] of char;
+    splitExtension          : array [0..5] of AnsiChar;
+    splitObjective          : array [0..5] of AnsiChar;
     splitOldestCallWaiting  : SmallInt;
     splitPercentInSvcLevel  : Byte;
     splitTotalACDTalkTime   : Integer;
@@ -579,11 +579,11 @@ type
     callsFlowedOut         : Integer;
     callsWaiting           : SHORT;
     oldestCallWaiting      : SHORT;
-    percentInSvcLevel      : UCHAR;
-    name                   : array [0..15] of Char;
-    extension              : array [0..5] of Char;
+    percentInSvcLevel      : UChar;
+    name                   : array [0..15] of AnsiChar;
+    extension              : array [0..5] of AnsiChar;
     number                 : SHORT;
-    objective              : array [0..5] of Char;
+    objective              : array [0..5] of AnsiChar;
     totalAfterCallTime     : Integer;
     totalAuxTime           : Integer;
     totalACDTalkTime       : Integer;
@@ -625,9 +625,9 @@ type
     outgoingCalls          : Integer;
     outgoingCompletedCalls : Integer;
     outgoingUsage          : Integer;
-    percentAllTrunksBusy   : UCHAR;
-    percentTrunksMaintBusy : UCHAR;
-    trunkGroupName         : array [0..15] of Char;
+    percentAllTrunksBusy   : UChar;
+    percentTrunksMaintBusy : UChar;
+    trunkGroupName         : array [0..15] of AnsiChar;
     trunkGroupNumber       : SHORT;
     trunksInUse            : SHORT;
     trunksMaintBusy        : SHORT;
@@ -674,10 +674,10 @@ type
     callsWaiting       : SHORT;
     callsNonACD        : Integer;
     oldestCallWaiting  : SHORT;
-    percentInSvcLevel  : UCHAR;
+    percentInSvcLevel  : UChar;
     totalACDTalkTime   : Integer;
-    extension          : array [0..5] of Char;
-    name               : array [0..15] of Char;
+    extension          : array [0..5] of AnsiChar;
+    name               : array [0..15] of AnsiChar;
     end;
 
 
@@ -710,7 +710,7 @@ type
     end;
 
 
-  ATTPrivateFilter_t = UCHAR;
+  ATTPrivateFilter_t = UChar;
 
 
   ATTMonitorConfEvent_t = record
@@ -769,7 +769,7 @@ type
 
   ATTEnteredDigitsEvent_t = record
     connection          : ConnectionID_t;
-    digits              : array [0..24] of Char;
+    digits              : array [0..24] of AnsiChar;
     localConnectionInfo : LocalConnectionState_t;
     cause               : CSTAEventCause_t ;
     end;
@@ -868,7 +868,7 @@ type
 
 
   ATTGetAPICapsConfEvent_t = record
-    switchVersion              : array [0..15] of Char;
+    switchVersion              : array [0..15] of AnsiChar;
     sendDTMFTone               : Boolean;
     enteredDigitsEvent         : Boolean;
     queryDeviceName            : Boolean;
@@ -881,7 +881,7 @@ type
     selectiveListeningRetrieve : Boolean;
     setBillingRate             : Boolean;
     queryUCID                  : Boolean;
-    chargeAdviceEvent          : Boolean;
+    ChargeAdviceEvent          : Boolean;
     reserved1                  : Boolean;
     reserved2                  : Boolean;
     end;
@@ -892,25 +892,25 @@ type
     end;
 
 
-  ATTChargeType_t = ( CT_INTERMEDIATE_CHARGE = 1,
-    CT_FINAL_CHARGE        = 2,
-    CT_SPLIT_CHARGE        = 3 );
+  ATTChargeType_t = ( CT_INTERMEDIATE_Charge = 1,
+    CT_FINAL_Charge        = 2,
+    CT_SPLIT_Charge        = 3 );
 
   ATTChargeError_t = ( CE_NONE = 0,
-    CE_NO_FINAL_CHARGE         = 1,
-    CE_LESS_FINAL_CHARGE       = 2,
-    CE_CHARGE_TOO_LARGE        = 3,
+    CE_NO_FINAL_Charge         = 1,
+    CE_LESS_FINAL_Charge       = 2,
+    CE_Charge_TOO_LARGE        = 3,
     CE_NETWORK_BUSY            = 4 );
 
 
   ATTChargeAdviceEvent_t = record
     connection     : ConnectionID_t;
     calledDevice   : DeviceID_t;
-    chargingDevice : DeviceID_t;
+    ChargingDevice : DeviceID_t;
     trunkGroup     : DeviceID_t;
     trunkMember    : DeviceID_t;
-    chargeType     : ATTChargeType_t;
-    charge         : Integer;
+    ChargeType     : ATTChargeType_t;
+    Charge         : Integer;
     error          : ATTChargeError_t;
     end;
 
@@ -1029,7 +1029,7 @@ type
 
 
   ATTV4GetAPICapsConfEvent_t = record
-    switchVersion : array [0..15] of Char;
+    switchVersion : array [0..15] of AnsiChar;
     sendDTMFTone        :Boolean;
     enteredDigitsEvent  :Boolean;
     queryDeviceName     :Boolean;
@@ -1110,11 +1110,11 @@ type
   ATTV4QueryDeviceNameConfEvent_t = record
     deviceType : ATTDeviceType_t;
     device     : DeviceID_t;
-    name       : array [0..15] of Char;
+    name       : array [0..15] of AnsiChar;
     end;
 
 
-  ATTV4PrivateFilter_t = UCHAR;
+  ATTV4PrivateFilter_t = UChar;
 
 
   ATTV4MonitorConfEvent_t = record
@@ -1298,7 +1298,7 @@ type
   ATTSendDTMFTone_t = record
     sender        : ConnectionID_t;
     receivers     : ATTConnIDList_t;
-    tones         : array [0..32] of Char;
+    tones         : array [0..32] of AnsiChar;
     toneDuration  : SHORT;
     pauseDuration : SHORT;
     end;
@@ -1454,7 +1454,7 @@ type
 
   ATTUserProvidedCode_t = record
     _type : ATTProvidedCodeType_t;
-    data  : array [0..24] of Char;
+    data  : array [0..24] of AnsiChar;
     end;
 
 
@@ -1476,7 +1476,7 @@ type
 
   ATTBillType_t = ( BT_NEW_RATE       = 16,
     BT_FLAT_RATE                      = 17,
-    BT_PREMIUM_CHARGE                 = 18,
+    BT_PREMIUM_Charge                 = 18,
     BT_PREMIUM_CREDIT                 = 19,
     BT_FREE_CALL                      = 24 );
 
@@ -1507,7 +1507,7 @@ type
   ATTV4SendDTMFTone_t = record
     sender        : ConnectionID_t;
     receivers     : ATTV4ConnIDList_t;
-    tones         : array [0..32] of Char;
+    tones         : array [0..32] of AnsiChar;
     toneDuration  : SHORT;
     pauseDuration : SHORT;
     end;

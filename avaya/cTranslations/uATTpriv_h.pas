@@ -15,13 +15,13 @@ const
   ATTPRIV_MAX_HEAP     = 64;
   ATT_MAX_UUI_SIZE     = 96;
   ATT_DLL_NAME         = 'ATTPRV32.DLL';
-  ATT_VENDOR_STRING    = 'AT&T Definity G3';
+  ATT_VENDOR_AnsiString    = 'AT&T Definity G3';
 
 type
   ATTPrivateData_t = record
-    vendor : array [0..PRIVATE_VENDOR_SIZE - 1] of Char;
+    vendor : array [0..PRIVATE_VENDOR_SIZE - 1] of AnsiChar;
     length : WORD;
-    data   : array [0..ATT_MAX_PRIVATE_DATA - 1] of Char;
+    data   : array [0..ATT_MAX_PRIVATE_DATA - 1] of AnsiChar;
     end;
 
   pATTPrivateData_t = ^ATTPrivateData_t;
@@ -69,7 +69,7 @@ type
      //  35 : (linkStatus                : ATTLinkStatusEvent_t);
      //  36 : (getAPICaps                : ATTGetAPICapsConfEvent_t);
        37 : (serviceInitiated          : ATTServiceInitiatedEvent_t);
-       38 : (chargeAdviceEvent         : ATTChargeAdviceEvent_t);
+       38 : (ChargeAdviceEvent         : ATTChargeAdviceEvent_t);
      //  39 : (setBillRate               : ATTSetBillRateConfEvent_t);
      //  40 : (queryUCID                 : ATTQueryUcidConfEvent_t);
        41 : (loggedOffEvent            : ATTLoggedOffEvent_t);
@@ -175,7 +175,7 @@ type
   ATTEvent_t = record
     eventType : ATTEventType_t;
     u         : TATTEventType;
-    heap      : array [0..ATTPRIV_MAX_HEAP - 1] of Char;
+    heap      : array [0..ATTPRIV_MAX_HEAP - 1] of AnsiChar;
     end;
 
   pATTEvent_t = ^ATTEvent_t;
@@ -183,8 +183,8 @@ type
 
 
 
-function attMakeVersionString (requestedVersion: PChar;
-  supportedVersion: PChar): TSAPI;stdcall; external ATT_DLL_NAME;
+function attMakeVersionAnsiString (requestedVersion: PAnsiChar;
+  supportedVersion: PAnsiChar): TSAPI;stdcall; external ATT_DLL_NAME;
 
 
 function attV6MakeCall( privateData  : pATTPrivateData_t;

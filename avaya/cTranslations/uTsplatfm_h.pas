@@ -12,7 +12,7 @@ type
   ACSHandle_t  = ULONG;
   pACSHandle_t = ^ACSHandle_t;
   _Int         = Integer;
-  Nulltype     = char;
+  Nulltype     = AnsiChar;
 
 implementation
 

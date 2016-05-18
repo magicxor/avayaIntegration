@@ -1227,20 +1227,20 @@ begin
 if not Assigned( FOnCSTAPrivateStatus ) then
   exit;
 
-if not ConsistAndExtractReceivedPrivateEvent( PrivateData, ATT_CHARGE_ADVICE,
+if not ConsistAndExtractReceivedPrivateEvent( PrivateData, ATT_Charge_ADVICE,
   ATTEvent, 'FOnCSTAPrivateStatus' ) then
   exit;
 
 try
   FOnCSTAPrivateStatus( Self, Event._event.cstaUnsolicited.monitorCrossRefId,
-    ATTEvent.u.chargeAdviceEvent.connection,
-    ATTEvent.u.chargeAdviceEvent.calledDevice,
-    ATTEvent.u.chargeAdviceEvent.chargingDevice,
-    ATTEvent.u.chargeAdviceEvent.trunkGroup,
-    ATTEvent.u.chargeAdviceEvent.trunkMember,
-    ATTEvent.u.chargeAdviceEvent.chargeType,
-    ATTEvent.u.chargeAdviceEvent.charge,
-    ATTEvent.u.chargeAdviceEvent.error );
+    ATTEvent.u.ChargeAdviceEvent.connection,
+    ATTEvent.u.ChargeAdviceEvent.calledDevice,
+    ATTEvent.u.ChargeAdviceEvent.ChargingDevice,
+    ATTEvent.u.ChargeAdviceEvent.trunkGroup,
+    ATTEvent.u.ChargeAdviceEvent.trunkMember,
+    ATTEvent.u.ChargeAdviceEvent.ChargeType,
+    ATTEvent.u.ChargeAdviceEvent.Charge,
+    ATTEvent.u.ChargeAdviceEvent.error );
 except
   on E : Exception do
     begin
